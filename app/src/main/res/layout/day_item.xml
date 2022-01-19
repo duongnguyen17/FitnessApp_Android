@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300px"
+    android:orientation="vertical"
+    android:background="@drawable/shape_reg_bg_white_borer_corner_shadow"
+    android:gravity="center"
+    android:layout_centerHorizontal="true"
+    android:layout_marginHorizontal="12.25px"
+    android:layout_marginVertical="8px">
+
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/ivDayNutrition"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/image_1"
+            android:scaleType="fitCenter" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvDayNutrition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#414141"
+        android:textFontWeight="400"
+        android:fontFamily="SF Pro Display"
+        android:text="tastdf"/>
+</LinearLayout>
