@@ -6,12 +6,18 @@
         <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.23229166666666667" />
         <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/drawable/shape_reg_bg_white_borer_corner_shadow.xml" value="0.2861111111111111" />
         <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/activity_day_detail.xml" value="0.2128623188405797" />
-        <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/activity_main.xml" value="0.209375" />
+        <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/activity_nutritions.xml" value="0.209375" />
+        <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/day_detail_activity.xml" value="0.1" />
         <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/day_item.xml" value="0.2640625" />
         <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/fragment_bottom_tab_bar.xml" value="0.2640625" />
         <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/fragment_nutritions.xml" value="0.24635416666666668" />
+        <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/main_activity.xml" value="0.1403985507246377" />
         <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/shape_reg_border_corner_shadow.xml" value="0.17708333333333334" />
+        <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/standard_diet_fragment.xml" value="0.1403985507246377" />
+        <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/vegetable_diet_fragment.xml" value="0.1403985507246377" />
+        <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/layout/view_header_custom.xml" value="0.1403985507246377" />
+        <entry key="..\:/Android_Projects/FitnessApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.265625" />
       </map>
     </option>
   </component>

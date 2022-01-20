@@ -1,20 +1,16 @@
 package com.example.fitnessapp.nutritions
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
 import com.example.fitnessapp.model.DayData
 import com.example.fitnessapp.utils.FakeData
-import androidx.recyclerview.widget.DividerItemDecoration
-
-
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -44,19 +40,25 @@ class NutritionsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_nutritions, container, false)
+        val view = inflater.inflate(R.layout.nutritions_fragment, container, false)
         val recycleViewDay = view.findViewById<RecyclerView>(R.id.rvListDay)
         recycleViewDay.layoutManager = GridLayoutManager(context, 3)
         val adapter = RecycleViewDayAdapter(FakeData.arrayDayData)
         adapter.listener = object : RecycleViewDayAdapter.IItemListener {
             override fun onClickItem(item: DayData) {
-                Log.e("click", "onClickItem")
+                val intent = Intent(activity, DayDetailActivity::class.java)
+                val bundle = Bundle()
+                bundle.putSerializable("item", item)
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
 
-            override fun onClickFlag(item: DayData) {
-                Log.e("click", "onClickFlag")
-            }
+//            override fun onLongClickItem(item: DayData) {
+//                Log.e("onLongClick", "onLongClick")
+//            }
         }
+
+        //thêm divider cho các icon
 //        val dividerItemDecoration = DividerItemDecoration(
 //            recycleViewDay.getContext(),
 //            GridLayoutManager.VERTICAL

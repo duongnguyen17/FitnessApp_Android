@@ -1,0 +1,33 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemPageTraining"
+        android:enabled="true"
+        android:icon="@drawable/item_training"
+        android:title="Training"
+        android:visible="true" />
+    <item
+        android:id="@+id/itemPageWorkout"
+        android:enabled="true"
+        android:icon="@drawable/item_workout"
+        android:title="Workout"
+        android:visible="true" />
+    <item
+        android:id="@+id/itemPageNutritions"
+        android:enabled="true"
+        android:icon="@drawable/item_nutritions"
+        android:title="Nutritions"
+        android:visible="true" />
+    <item
+        android:id="@+id/itemPageReport"
+        android:enabled="true"
+        android:icon="@drawable/item_report"
+        android:title="Report"
+        android:visible="true" />
+    <item
+        android:id="@+id/itemPageSetting"
+        android:enabled="true"
+        android:icon="@drawable/item_setting"
+        android:title="Setting"
+        android:visible="true" />
+
+</menu>

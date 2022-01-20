@@ -1,5 +1,6 @@
+<!--Khong dung nua-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <corners android:radius="8px" />
+    <corners android:radius="20dp" />
     <solid android:color="#ffffff"/>
 </shape>

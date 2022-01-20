@@ -1,4 +1,9 @@
 package com.example.fitnessapp.model
 
-class DayData(val _id: Int, val name: String, val imageUri: String) {
+import java.io.Serializable
+
+class DayData(val id: Int, val name: String, val imageUri: Int) : Serializable {
+    //    var id: Int? = null
+//    var name : String? = null
+//    var imageUri: String? = null
 }

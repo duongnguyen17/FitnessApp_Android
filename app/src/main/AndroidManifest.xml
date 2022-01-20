@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessApp">
         <activity
-            android:name=".nutritions.DayDetail"
+            android:name=".nutritions.DayDetailActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

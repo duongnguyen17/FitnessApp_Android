@@ -29,6 +29,9 @@ class RecycleViewDayAdapter(private val data: List<DayData>) :
         holder.itemView.setOnClickListener {
             listener?.onClickItem(data[position])
         }
+//        holder.itemView.setOnLongClickListener {
+//            listener?.onLongClickItem(data[position])
+//        }
     }
 
     override fun getItemCount(): Int = data.size
@@ -41,14 +44,12 @@ class RecycleViewDayAdapter(private val data: List<DayData>) :
 //            imageView.setImageURI(Uri.parse(data.imageUri))
 
             textView.text = data.name
-//            val imgUri: Uri = Uri.parse("android.resource://com.example.fitnessapp/" + data.imageUri)
-//            imageView.setImageURI(imgUri)
+            imageView.setImageResource(data.imageUri)
         }
     }
 
     interface IItemListener {
         fun onClickItem(item: DayData)
-        fun onClickFlag(item: DayData)
-
+//        fun onLongClickItem(item: DayData)
     }
 }
