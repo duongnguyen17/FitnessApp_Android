@@ -2,6 +2,7 @@ package com.example.fitnessapp.nutritions
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,15 +26,16 @@ private const val ARG_PARAM2 = "param2"
  */
 class NutritionsFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
+//    private var clickedItemPosition: Int? = -1
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+//        clickedItemPosition = savedInstanceState?.getInt("clickedItemPosition")
+//        arguments?.let {
+//            clickedItemPosition = it.getInt("clickedItemPosition")
+//            param2 = it.getString(ARG_PARAM2)
+//        }
     }
 
     override fun onCreateView(
@@ -44,8 +46,11 @@ class NutritionsFragment : Fragment() {
         val recycleViewDay = view.findViewById<RecyclerView>(R.id.rvListDay)
         recycleViewDay.layoutManager = GridLayoutManager(context, 3)
         val adapter = RecycleViewDayAdapter(FakeData.arrayDayData)
+
         adapter.listener = object : RecycleViewDayAdapter.IItemListener {
-            override fun onClickItem(item: DayData) {
+            override fun onClickItem(item: DayData, position: Int) {
+//                Log.d("TAG", "onClickItem: ")
+                adapter.clickedItemPosition = position
                 val intent = Intent(activity, DayDetailActivity::class.java)
                 val bundle = Bundle()
                 bundle.putSerializable("item", item)
@@ -66,6 +71,11 @@ class NutritionsFragment : Fragment() {
 //        recycleViewDay.addItemDecoration(dividerItemDecoration)
         recycleViewDay.adapter = adapter
         return view
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
     }
 
     companion object {

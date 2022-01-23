@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".nutritions.DayDetailActivity">
 
+    <include layout="@layout/header_custom_view" />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabDayDetail"
         android:layout_width="match_parent"

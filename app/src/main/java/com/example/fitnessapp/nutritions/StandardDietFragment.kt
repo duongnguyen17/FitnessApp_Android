@@ -1,10 +1,13 @@
 package com.example.fitnessapp.nutritions
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
 import com.example.fitnessapp.model.DayData
 
@@ -27,7 +30,10 @@ class StandardDietFragment : Fragment() {
         super.onCreate(savedInstanceState)
         // ?.let check null. if not null -> do in {}
         arguments?.let {
-            itemData = it.getSerializable("itemData") as DayData
+            if (it.getSerializable("itemData") != null) {
+                itemData = it.getSerializable("itemData") as DayData
+            }
+
             param2 = it.getString(ARG_PARAM2)
         }
     }
@@ -37,7 +43,20 @@ class StandardDietFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.standard_diet_fragment, container, false)
+        val view = inflater.inflate(R.layout.standard_diet_fragment, container, false)
+        val recycleView = view.findViewById<RecyclerView>(R.id.rvListDetailDay)
+        recycleView.layoutManager = LinearLayoutManager(context)
+        // create adapter
+        val adapter = RecyclerViewDayDetailAdapter(
+            listOf(
+                itemData,
+                itemData,
+                itemData,
+                itemData
+            ) as List<DayData>
+        )
+        recycleView.adapter = adapter
+        return view
 
     }
 
@@ -45,6 +64,7 @@ class StandardDietFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
     }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

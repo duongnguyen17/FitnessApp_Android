@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
+import com.example.fitnessapp.model.DayData
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,13 +22,17 @@ private const val ARG_PARAM2 = "param2"
  */
 class VegetableDietFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
+    private var itemData: DayData? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            if (
+                it.getSerializable("itemData") != null
+            ) {
+                itemData = it.getSerializable("itemData") as DayData
+            }
             param2 = it.getString(ARG_PARAM2)
         }
     }
@@ -35,7 +42,19 @@ class VegetableDietFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.vegetable_diet_fragment, container, false)
+        val view = inflater.inflate(R.layout.vegetable_diet_fragment, container, false)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.rvListDetailDay)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        val adapter = RecyclerViewDayDetailAdapter(
+            listOf(
+                itemData,
+                itemData,
+                itemData,
+                itemData
+            ) as List<DayData>
+        )
+        recyclerView.adapter = adapter
+        return view
     }
 
     companion object {

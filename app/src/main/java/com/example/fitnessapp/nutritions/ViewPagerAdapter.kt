@@ -1,5 +1,6 @@
 package com.example.fitnessapp.nutritions
 
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -12,22 +13,17 @@ class ViewPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
 
     override fun getItem(position: Int): Fragment {
-
-        when (position) {
-            0 -> {return StandardDietFragment()}
-            1 -> { return VegetableDietFragment()}
-            else -> { return StandardDietFragment()}
-        }
+        return fragmentList[position]
     }
 
     override fun getCount() = 2
-    fun add (fm: Fragment, title :String){}
-    override fun getPageTitle(position: Int): CharSequence? {
-        when(position){
-            0->{return "Standard"}
-            1->{return "Vegetable"}
-            else->{return null}
-        }
+    fun add(fm: Fragment, title: String) {
+        fragmentList.add(fm)
+        fragmentTitleList.add(title)
+    }
+
+    override fun getPageTitle(position: Int): CharSequence {
+        return fragmentTitleList[position]
     }
 
 }
