@@ -18,6 +18,7 @@ import com.example.fitnessapp.utils.FakeData
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+var adapter: RecycleViewDayAdapter? = null
 
 /**
  * A simple [Fragment] subclass.
@@ -25,12 +26,17 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class NutritionsFragment : Fragment() {
+
     // TODO: Rename and change types of parameters
 //    private var clickedItemPosition: Int? = -1
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (adapter == null) {
+            adapter = RecycleViewDayAdapter(FakeData.arrayDayData)
+
+        }
 //        clickedItemPosition = savedInstanceState?.getInt("clickedItemPosition")
 //        arguments?.let {
 //            clickedItemPosition = it.getInt("clickedItemPosition")
@@ -45,12 +51,11 @@ class NutritionsFragment : Fragment() {
         val view = inflater.inflate(R.layout.nutritions_fragment, container, false)
         val recycleViewDay = view.findViewById<RecyclerView>(R.id.rvListDay)
         recycleViewDay.layoutManager = GridLayoutManager(context, 3)
-        val adapter = RecycleViewDayAdapter(FakeData.arrayDayData)
 
-        adapter.listener = object : RecycleViewDayAdapter.IItemListener {
+        adapter!!.listener = object : RecycleViewDayAdapter.IItemListener {
             override fun onClickItem(item: DayData, position: Int) {
 //                Log.d("TAG", "onClickItem: ")
-                adapter.clickedItemPosition = position
+                adapter!!.clickedItemPosition = position
                 val intent = Intent(activity, DayDetailActivity::class.java)
                 val bundle = Bundle()
                 bundle.putSerializable("item", item)
@@ -75,7 +80,6 @@ class NutritionsFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-
     }
 
     companion object {
@@ -96,5 +100,7 @@ class NutritionsFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+
+
     }
 }
