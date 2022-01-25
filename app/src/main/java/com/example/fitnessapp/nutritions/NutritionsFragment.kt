@@ -18,7 +18,7 @@ import com.example.fitnessapp.utils.FakeData
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-var adapter: RecycleViewDayAdapter? = null
+private var adapter: RecycleViewDayAdapter? = null
 
 /**
  * A simple [Fragment] subclass.
@@ -35,7 +35,6 @@ class NutritionsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         if (adapter == null) {
             adapter = RecycleViewDayAdapter(FakeData.arrayDayData)
-
         }
 //        clickedItemPosition = savedInstanceState?.getInt("clickedItemPosition")
 //        arguments?.let {
